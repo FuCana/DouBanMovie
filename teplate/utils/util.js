@@ -16,10 +16,6 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
-}
-
 
 function convertToStarsArray(stars) {
   var arr = [];
@@ -57,5 +53,6 @@ function http(url, callBack) {
 
 module.exports = {
   convertToStarsArray: convertToStarsArray,
-  http: http
+  http: http,
+  formatTime: formatTime,
 }

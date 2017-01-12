@@ -30,15 +30,25 @@ Page({
           "/v2/movie/top250"
         break;
     }
+    wx.showNavigationBarLoading();
     util.http(dataUrl, this.processDoubanData);
     this.data.requestUrl = dataUrl; //保存跳转连接
   },
-  //下拉刷新
+  //上拉刷新
   onScrollLower: function (event) {
     var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count20";
     util.http(nextUrl, this.processDoubanData);
+    wx.showNavigationBarLoading();
   },
-//数据处理
+  //下拉重新加载数据
+  onPullDownRefresh: function (event) {
+    var refreshUrl = this.data.requestUrl + "?start=0&count20";
+    this.data.movies={};
+    this.data.isEmpty=true;
+    util.http(refreshUrl, this.processDoubanData);
+  },
+
+  //数据处理
   processDoubanData: function (moviesDouban) {
     var movies = [];
     for (var idx in moviesDouban.subjects) {
@@ -58,11 +68,13 @@ Page({
     }
     var totalMovies = {};
     if (!this.data.isEmpty) {
-      totalMovies = this.data.movies.concat(movies)
+      totalMovies = this.data.movies.concat(movies) //将新加载的数据与原有数据合并
     } else {
       totalMovies = movies;
       this.data.isEmpty = false;
     }
+    wx.hideNavigationBarLoading();
+
     this.data.totalCount += 20;
     this.setData({
       movies: totalMovies
