@@ -18,7 +18,7 @@ Page({
     this.getMovieListData(topUrl,"top","豆瓣Top250");
   },
 
-  moreTap:function(){
+  moreTap:function(event){
       var category = event.currentTarget.dataset.category;
       wx.navigateTo({
         url:"more-movie/more-movie?category="+ category

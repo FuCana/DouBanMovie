@@ -20,16 +20,17 @@ module.exports = {
   formatTime: formatTime
 }
 
+
 function convertToStarsArray(stars) {
   var arr = [];
-  var full = (stars+'')[0]-0;
-  var hasHalf = (stars+'')[1]-0==5;
-  for(var i=0;i<full;i++){
+  var full = (stars + '')[0] - 0;
+  var hasHalf = (stars + '')[1] - 0 == 5;
+  for (var i = 0; i < full; i++) {
     arr.push(1);
   }
   hasHalf && arr.push(2);
   var len = arr.length;
-  for(var i=0;i<5-len;i++){
+  for (var i = 0; i < 5 - len; i++) {
     arr.push(0);
   }
   return arr;
@@ -37,6 +38,24 @@ function convertToStarsArray(stars) {
 
 }
 
+function http(url, callBack) {
+  wx.request({
+    url: url,
+    method: 'GET',
+    header: {
+      "content-Type": "application"
+    },
+    success: function (res) {
+      callBack(res.data);
+    },
+    fail: function (error) {
+      console.log(error)
+    }
+
+  })
+}
+
 module.exports = {
-  convertToStarsArray: convertToStarsArray
+  convertToStarsArray: convertToStarsArray,
+  http: http
 }
