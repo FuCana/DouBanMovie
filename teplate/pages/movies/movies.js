@@ -7,12 +7,12 @@ Page({
     inTheaters: {},
     comingSoon: {},
     top: {},
-    searchResult:{},
+    searchResult: {},
     containerShow: true,
     searchPanelShow: false,
-    totalCount:0,
-    requestUrl:"",
-    isEmpty:true,
+    totalCount: 0,
+    requestUrl: "",
+    isEmpty: true,
   },
   onLoad: function (event) {
     var inTheatersUrl = app.globalData.doubanBase + "/v2/movie/in_theaters" + "?start=0&count=3";
@@ -57,7 +57,7 @@ Page({
     this.setData({
       containerShow: false,
       searchPanelShow: true,
-      totalCount:0
+      totalCount: 0
     })
   },
   onCancelTap: function (event) {
@@ -67,13 +67,13 @@ Page({
       // searchResult:{}
     })
   },
-  onBindChange:function(event) {
+  onBindChange: function (event) {
     var text = event.detail.value;
     // console.log(text)
     //搜索请求
     wx.showNavigationBarLoading();
     var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
-    this.getMovieListData(searchUrl,"searchResult","")
+    this.getMovieListData(searchUrl, "searchResult", "")
     this.data.requestUrl = searchUrl;
   },
 
@@ -108,13 +108,13 @@ Page({
       categorytitle: categorytitle,
       movies: movies
     };
-    
+
     this.setData(readyData);
 
     wx.hideNavigationBarLoading(); //数据加载完成后隐藏loading
   },
 
-  secondProcessData:function(moviesDouban){
+  secondProcessData: function (moviesDouban) {
     var movies = [];
     for (var idx in moviesDouban.subjects) {
       var subject = moviesDouban.subjects[idx];
