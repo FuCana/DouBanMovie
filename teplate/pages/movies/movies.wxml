@@ -2,9 +2,20 @@
 <!--pages/movies/movies.wxml-->
 
 <import src="movieList-template/movieList-template.wxml" />
-
-<view class="container">
+<import src="movie-grid/movie-grid.wxml" />
+<view class="search">
+  <icon type="search" size="13" color="#405f80" class="search-img"></icon>
+  <input type="text" placeholder="太空旅客" placeholder-class="placeholder" 
+  bindfocus="onBindFocus" bindblur="onBindChange"/>
+  <icon type="cancel" size="18" color="#405f80" class="cancel-img"
+  catchtap="onCancelTap" wx:if="{{searchPanelShow}}"></icon>
+</view>
+<view class="container" wx:if="{{containerShow}}">
   <template is="movieList"  data="{{...inTheaters}}"/>
   <template is="movieList"  data="{{...comingSoon}}"/>
   <template is="movieList"  data="{{...top}}"/>
+</view>
+
+<view class="search-panel" wx:if="{{searchPanelShow}}">
+  <template is="movieGridTemplate" data="{{...searchResult}}"/>
 </view>

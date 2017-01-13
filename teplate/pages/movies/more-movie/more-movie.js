@@ -73,7 +73,8 @@ Page({
       totalMovies = movies;
       this.data.isEmpty = false;
     }
-    wx.hideNavigationBarLoading();
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading(); //数据加载完成后隐藏loading
 
     this.data.totalCount += 20;
     this.setData({
