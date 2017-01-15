@@ -3,12 +3,16 @@ var app = getApp();
 var util = require("../../../utils/util.js");
 Page({
   data: {
-    movie:{}
+    movie: {},
+    movieId:{}
   },
   onLoad: function (options) {
     var movieId = options.id;
     var url = app.globalData.doubanBase + "/v2/movie/subject/" + movieId;
     util.http(url, this.processDouBanData);
+    this.setData({
+      movieId:movieId
+    })
   },
   processDouBanData: function (data) {
     console.log(data)
@@ -20,7 +24,7 @@ Page({
       name: "",
       id: ""
     }
-    if (data.directors[0]!= null) {
+    if (data.directors[0] != null) {
       if (data.directors[0].avatars != null) {
         director.avatar = data.directors[0].avatars.large
       }
@@ -47,5 +51,21 @@ Page({
     this.setData({
       movie: movie
     })
+ 
+  },
+  onShareAppMessage: function (event) {
+    return {
+      title: this.data.movie.title,
+      desc: this.data.movie.summary,
+      path: '/pages/movies/movies-detail/movies-detail?id=movieId'
+    }
+  },
+  viewMoviePostImg:function(event){
+    var src = event.currentTarget.dataset.src;
+    wx.previewImage({
+      current:src,
+      urls:[src]
+    })
   }
+
 })

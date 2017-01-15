@@ -43,8 +43,8 @@ Page({
   //下拉重新加载数据
   onPullDownRefresh: function (event) {
     var refreshUrl = this.data.requestUrl + "?start=0&count20";
-    this.data.movies={};
-    this.data.isEmpty=true;
+    this.data.movies = {};
+    this.data.isEmpty = true;
     util.http(refreshUrl, this.processDoubanData);
   },
 
@@ -89,6 +89,12 @@ Page({
       success: function (res) {
         // success
       }
+    })
+  },
+  onMovieTap: function (event) {
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: "../movies-detail/movies-detail?id=" + movieId
     })
   }
 

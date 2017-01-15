@@ -85,11 +85,11 @@ Page({
   },
 
   //上拉刷新
-  onReachBottom: function (event) {
-    var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count20";
-    util.http(nextUrl, this.secondProcessData);
-    wx.showNavigationBarLoading();
-  },
+  // onReachBottom: function (event) {
+  //   var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count20";
+  //   util.http(nextUrl, this.secondProcessData);
+  //   wx.showNavigationBarLoading();
+  // },
 
   processDoubanData: function (moviesDouban, settedKey, categorytitle) {
     var movies = [];
@@ -121,38 +121,38 @@ Page({
     wx.hideNavigationBarLoading(); //数据加载完成后隐藏loading
   },
 
-  secondProcessData: function (moviesDouban) {
-    var movies = [];
-    for (var idx in moviesDouban.subjects) {
-      var subject = moviesDouban.subjects[idx];
-      var title = subject.title;
-      if (title.length >= 6) {
-        title = title.substring(0, 6) + "..."
-      }
-      var temp = {
-        stars: util.convertToStarsArray(subject.rating.stars),
-        title: title,
-        average: subject.rating.average,
-        coverageUrl: subject.images.large,
-        movieId: subject.id
-      }
-      movies.push(temp)
-    }
-    var totalMovies = {};
-    if (!this.data.isEmpty) {
-      totalMovies = this.data.movies.concat(movies) //将新加载的数据与原有数据合并
-    } else {
-      totalMovies = movies;
-      this.data.isEmpty = false;
-    }
-    wx.stopPullDownRefresh();
-    wx.hideNavigationBarLoading(); //数据加载完成后隐藏loading
+  // secondProcessData: function (moviesDouban) {
+  //   var movies = [];
+  //   for (var idx in moviesDouban.subjects) {
+  //     var subject = moviesDouban.subjects[idx];
+  //     var title = subject.title;
+  //     if (title.length >= 6) {
+  //       title = title.substring(0, 6) + "..."
+  //     }
+  //     var temp = {
+  //       stars: util.convertToStarsArray(subject.rating.stars),
+  //       title: title,
+  //       average: subject.rating.average,
+  //       coverageUrl: subject.images.large,
+  //       movieId: subject.id
+  //     }
+  //     movies.push(temp)
+  //   }
+  //   var totalMovies = {};
+  //   if (!this.data.isEmpty) {
+  //     totalMovies = this.data.movies.concat(movies) //将新加载的数据与原有数据合并
+  //   } else {
+  //     totalMovies = movies;
+  //     this.data.isEmpty = false;
+  //   }
+  //   wx.stopPullDownRefresh();
+  //   wx.hideNavigationBarLoading(); //数据加载完成后隐藏loading
 
-    this.data.totalCount += 20;
-    this.setData({
-      movies: totalMovies
-    });
-  }
+  //   this.data.totalCount += 20;
+  //   this.setData({
+  //     movies: totalMovies
+  //   });
+  // }
 
 
 })
