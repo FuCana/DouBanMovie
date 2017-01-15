@@ -35,7 +35,7 @@ Page({
     this.data.requestUrl = dataUrl; //保存跳转连接
   },
   //上拉刷新
-  onScrollLower: function (event) {
+  onReachBottom: function (event) {
     var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count20";
     util.http(nextUrl, this.processDoubanData);
     wx.showNavigationBarLoading();

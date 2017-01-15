@@ -34,6 +34,26 @@ function convertToStarsArray(stars) {
 
 }
 
+function convertToCastString(casts){
+  var castsjoin = "";
+    for(var idx in casts){
+      castsjoin = castsjoin + casts[idx].name +" / ";
+    }
+    return castsjoin.substring(0, castsjoin.length-2);
+}
+
+function converToCastInfos(casts){
+  var castsArray = []
+  for (var idx in casts){
+    var cast = {
+      img:casts[idx].avatars ? casts[idx].avatars.large:"",
+      name:casts[idx].name
+    }
+    castsArray.push(cast);
+  }
+  return castsArray;
+}
+
 function http(url, callBack) {
   wx.request({
     url: url,
@@ -55,4 +75,6 @@ module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
   formatTime: formatTime,
+  convertToCastString:convertToCastString,
+  converToCastInfos:converToCastInfos,
 }

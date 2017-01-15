@@ -31,6 +31,13 @@ Page({
     })
   },
 
+  onMovieTap:function(event){
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: "movies-detail/movies-detail?id=" + movieId
+    })
+  },
+
   getMovieListData: function (url, settedKey, categorytitle) {
     var that = this;
     wx.request({
@@ -78,7 +85,7 @@ Page({
   },
 
   //上拉刷新
-  onScrollLower: function (event) {
+  onReachBottom: function (event) {
     var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count20";
     util.http(nextUrl, this.secondProcessData);
     wx.showNavigationBarLoading();
