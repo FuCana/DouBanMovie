@@ -1,0 +1,30 @@
+<template name="mineTemplate">
+  <view class="messages">
+    <view class="item">
+      <text>我的订单</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="item">
+      <text>优惠券</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="item">
+      <text>影院会员卡</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+  <view class="comments">
+    <view class="item">
+      <text>想看的电影</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="item">
+      <text>看过的电影</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+  <view>
+  {{userInfo:nickName}}
+  </view>
+  
+</template>

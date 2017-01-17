@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<import src="mine_template/mine_template.wxml" />
+<import src="login/login.wxml" />
+<view id="mine">
+  <view class="login" wx:if="{{login}}">
+    <template is="loginTemplate" data="{{...obj}}" />
+  </view>
+  <view class="login" wx:else>
+    <template is="mineTemplate" />
+  </view>
+</view>

@@ -27,6 +27,7 @@ App({
   globalData:{
     userInfo:null,
     doubanBase:"https://api.douban.com",
+    login:true,
   }
   
 })

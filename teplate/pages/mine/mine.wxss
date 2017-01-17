@@ -1,0 +1,8 @@
+@import "mine_template/mine_template.wxss";
+@import "login/login.wxss";
+#mine{
+  background-color: #EFEEF4;
+  width:100%;
+  height:1800rpx;
+  padding-top:1rpx;
+}

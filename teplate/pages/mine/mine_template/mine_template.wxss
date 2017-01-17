@@ -1,0 +1,25 @@
+
+.item{
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    padding:0 12rpx;
+    border-bottom:1px solid #EFEEF4;
+    position: relative;
+
+}
+.messages{
+    margin:20rpx 0;
+}
+.arrow{
+    font-size:40rpx;
+    font-weight:bold;
+    position: absolute;
+    top:0rpx;
+    right:50rpx;
+    text-align:right;
+
+}
