@@ -1,4 +1,8 @@
 <template name="mineTemplate">
+  <view class="head">
+    <view class="photo"><image src="{{avatarUrl}}"></image></view>
+    <text class="nickname">{{nickName}}</text>
+  </view>
   <view class="messages">
     <view class="item">
       <text>我的订单</text>
@@ -22,9 +26,6 @@
       <text>看过的电影</text>
       <text class="arrow">></text>
     </view>
-  </view>
-  <view>
-  {{userInfo:nickName}}
   </view>
   
 </template>

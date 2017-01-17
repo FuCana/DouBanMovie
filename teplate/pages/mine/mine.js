@@ -42,20 +42,21 @@ Page({
     var that = this
     wx.login({
       success: function (res) {
-        app.globalData.login = false;
         app.getUserInfo(function (userInfo) {
           //更新数据
           that.setData({
-            userInfo: userInfo
+            userInfo: userInfo,
+             login: false
           })
+          console.log(that.data.userInfo)
         })
-        that.setData({
-          login: false,
-        })
+        app.globalData.login = false;
+        
+
       }
-      
+
     })
-     console.log(this.data.userInfo)     
+    
   },
 
   //  点击tab切换 

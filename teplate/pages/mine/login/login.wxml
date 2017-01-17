@@ -21,6 +21,9 @@
           <text>其他方式登录</text>
         </view>
       </form>
+      <view class="third-login-icon" catchtap="bindUserInfo">
+        <image src="/images/icon/weixin.png"></image>
+      </view>
     </swiper-item>
     <swiper-item>
       <form catchsubmit="formsubmit" name="iphone">
@@ -39,9 +42,10 @@
           <text>其他方式登录</text>
         </view>
       </form>
+      <view class="third-login-icon" catchtap="bindUserInfo">
+        <image src="/images/icon/weixin.png"></image>
+      </view>
     </swiper-item>
-    <view class="third-login-icon" catchtap="bindUserInfo">
-      <image src="/images/icon/weixin.png"></image>
-    </view>
   </swiper>
+  
 </template>

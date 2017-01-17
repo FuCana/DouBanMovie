@@ -3,7 +3,7 @@
     <view class="stars">
       <block wx:for="{{stars}}" wx:for-item="i" wx:key="i">
            <image wx:if="{{i==1}}" class="star_img" src="/images/star.png "></image>
-           <image wx:elif="{{i==0}}" class="star_img" src="/images/stars_g.png "></image>
+           <image wx:elif="{{i==0}}" class="star_img" src="/images/star_hollow_hover.png "></image>
            <image wx:else="{{i==2}}" class="star_img" src="/images/star_half.png "></image>
       </block>
     </view>
