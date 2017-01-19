@@ -40,7 +40,7 @@ catchtap="viewMoviePostImg" src="{{movie.movieImg}} "></image>
   </view>
   <view class="flex-row ">
     <text class="mark ">类型</text>
-    <text>{{movie.generes}}</text>
+    <text>{{movie.genres}}</text>
   </view>
 </view>
 <view class="hr"></view>

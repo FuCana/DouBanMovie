@@ -1,0 +1,80 @@
+/* pages/cinema/cinema.wxss */
+.cinema{
+	width:100%;
+	padding:15rpx 8rpx;
+	border-bottom:1px solid #ccc;
+	display: flex;
+	flex-direction: column;
+}
+
+.row{
+	display: flex;
+	flex-direction: row;
+}
+
+.name{
+	font-size: 19px;
+	line-height: 60rpx;
+	margin-right: 10rpx;
+	font-family: "微软雅黑";
+}
+.price{
+	font-size: 19px;
+	line-height: 60rpx;
+	color:#ec1419;
+	margin-right: 10rpx;
+}
+.distance{
+	font-size: 14px;
+	line-height: 50rpx;
+	color:#777;
+}
+.price_l{
+	font-size: 12px;
+	line-height: 70rpx;
+	color:#ec1419;
+	
+}
+.location{
+	 display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp:1;
+    color:#777;
+    font-size: 14px;
+    line-height: 50rpx;
+    width:85%;
+    font-family: "微软雅黑"
+}
+.discount_messages{
+	display: flex;
+	flex-direction: column;
+}
+.message{
+	display: flex;
+	flex-direction: row;
+	height:29rpx;
+	margin-top:8rpx;
+	font-family: "微软雅黑"
+
+}
+.messages{
+	font-size: 10px;
+	font-size:11px;
+	color:#ccc;
+	line-height:24rpx;
+	margin-left:5rpx;
+	font-family: "微软雅黑"
+}
+
+
+
+
+
+
+
+
+
+
+

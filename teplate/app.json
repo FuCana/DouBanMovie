@@ -7,8 +7,9 @@
     "pages/movies/movieList-template/movieList-template",
     "pages/movies/more-movie/more-movie",
     "pages/movies/movies-detail/movies-detail",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/cinema/cinema",
+    "pages/cinema/cinema-detial/cinema-detial"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -27,7 +28,7 @@
         "selectedIconPath":"images/icon/film_selected.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/cinema/cinema",
         "text": "影院",
         "iconPath":"images/icon/cinema.png",
         "selectedIconPath":"images/icon/cinema_selected.png"

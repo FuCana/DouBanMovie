@@ -8,4 +8,5 @@
   <view class="mine" wx:else>
     <template is="mineTemplate" data="{{...userInfo}}" />
   </view>
+ 
 </scroll-view>

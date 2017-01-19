@@ -1,0 +1,21 @@
+<!--pages/cinema/cinema.wxml-->
+<view class="cinemas">
+	<block wx:for="{{cinemas}}" wx:for-item="cinema" wx:key="unqiue">
+		<view class="cinema" data-id="{{cinema.id}}" catchtap="onCinemaTap">
+			<view class="row">
+				<text class="name">{{cinema.name}}</text>
+				<text class="price">{{cinema.lowerprice}}</text><text class="price_l"> 元起</text>
+			</view>
+			<view class="row">
+				<text class="location">{{cinema.location}}</text>
+				<text class="distance">{{cinema.distance}}</text>
+			</view>		
+			<view class="discount_messages">
+				<view class="message">
+					<icon type="waiting" size="12" color="orange" class="waiting"></icon>
+					<text class="messages">{{cinema.messages}}</text>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>

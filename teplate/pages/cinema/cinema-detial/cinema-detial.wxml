@@ -1,0 +1,8 @@
+<!--pages/cinema/cinema-detial/cinema-detial.wxml-->
+<view class="head">
+	<view class="location"><text>{{cinemas[index].location}}</text></view>
+	<view class="head_right">
+		<image src="/images/location.png"></image>
+		<text>地图</text>
+	</view>
+</view>
