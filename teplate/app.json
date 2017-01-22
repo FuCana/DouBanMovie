@@ -10,6 +10,7 @@
     "pages/logs/logs",
     "pages/cinema/cinema",
     "pages/cinema/cinema-detial/cinema-detial"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",
