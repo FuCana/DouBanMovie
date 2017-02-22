@@ -1,8 +1,12 @@
 // pages/cinema/cinema-detial/cinema-detial.js
+var app = getApp();
+var util = require("../../../utils/util.js");
+
 Page({
   data: {
+    movies: [],
     navigateTitle: "",
-    'cinemas': [
+    cinemas: [
       {
         'name': '庆春影城',
         'lowerprice': '23.9',
@@ -86,8 +90,11 @@ Page({
     var cinema_name = cinema.name;
     this.setData({
       navigateTitle: cinema_name,
-      index: index
+      index:index
     });
+    //请求电影院上映电影信息
+    var url = app.globalData.doubanBase + "/v2/movie/coming_soon" +"?start=0&count=12";
+    util.http(url,this.processData);
 
   },
   onReady: function (event) {
@@ -117,6 +124,25 @@ Page({
       }
 
     })
+  },
+  processData:function(data){
+    console.log(data);
+    var movies = [];
+    for (var idx in data.subjects) {
+      var subject = data.subjects[idx];
+      var title = subject.title;
+      var temp = {
+        title: title,
+        average: subject.rating.average,
+        coverageUrl: subject.images.small
+      }
+      movies.push(temp)
+    }
+    console.log(movies);
+    this.setData({
+      movies:movies
+    })
+    
   }
 
 

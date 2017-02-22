@@ -10,4 +10,7 @@
   </view>
 </view>
 <scroll-view scroll-x="true" class="movie-banner">
+	<block wx:for="{{movies}}" wx:for-item="item" >
+		<image class="film-img" src="{{item.coverageUrl}}"></image>
+	</block>
 </scroll-view>
